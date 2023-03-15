@@ -212,11 +212,70 @@ sleep(2)
 
 pay.click()
 
-sleep(5)
+sleep(7)
 
 driver.save_screenshot('Testcase10-VerifyUserCheckout.jpg')
 
 sleep(1)
+
+
+
+# Test case 11 - Verify user can add/remove cart products
+
+driver.get(website)
+
+product = driver.find_element(By.CSS_SELECTOR, 'body > div.container > div > div:nth-child(6)')
+product.click()
+add_to_cart = driver.find_element(By.XPATH,'//a[contains(@href,"/cart/add")]')
+add_to_cart.click()
+add_more_items = driver.find_element(By.XPATH,'//a[contains(@href,"/cart/add")]')
+add_more_items.click()
+
+driver.save_screenshot('Testcase11-Cart-add-remove.jpg')
+
+
+
+# Test case 12 - Verify user can check order history
+
+driver.get('http://127.0.0.1:8000/order_history/')
+
+driver.save_screenshot('Testcase12-OrderHistory.jpg')
+
+
+
+# Test case 13 - Verify "view order" functionality
+
+view_order = driver.find_element(By.XPATH,'//a[contains(@href,"/order/")]')
+view_order.click()
+
+driver.save_screenshot('Testcase13-ViewOrder.jpg')
+
+
+
+# Test case 14 - Verify "print order" functionality
+# Print order functionality was manually verified.
+# Skipping as window objects are out of Selenium scope.
+
+driver.save_screenshot('Testcase14-PrintOrderWasAlreadyVerified.jpg')
+
+
+
+# Test case 15 - Verify "Contact" page
+
+contact = driver.find_element(By.XPATH,'//a[contains(@href,"/contact/")]')
+contact.click()
+
+driver.save_screenshot('Testcase15-Contactpage.jpg')
+
+
+
+# Test case 16 - Verify "About" page
+about = driver.find_element(By.XPATH,'//a[contains(@href,"/about/")]')
+about.click()
+
+driver.save_screenshot('Testcase16-VerifyAboutPage.jpg')
+
+
 
 
 
